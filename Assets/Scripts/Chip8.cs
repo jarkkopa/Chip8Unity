@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 [System.Serializable]
-public class Chip8//: MonoBehaviour
+public class Chip8
 {
 #region constants
 	/// <summary>

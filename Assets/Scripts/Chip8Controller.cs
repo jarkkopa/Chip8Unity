@@ -84,11 +84,17 @@ public class Chip8Controller : MonoBehaviour
 		display.ClearScreen();
 		chip8.Initialize();
 		TextAsset asset = GetNextRom();
-		
-		chip8.LoadIntoMemory(asset.bytes);
-		if (RomChangedEvent != null)
-			RomChangedEvent(asset.name);
-		running = true;
+		if (asset != null)
+		{
+			chip8.LoadIntoMemory(asset.bytes);
+			if (RomChangedEvent != null)
+				RomChangedEvent(asset.name);
+			running = true;
+		}
+		else
+		{
+			Debug.LogError("Can't find ROM file!");
+		}
 	}
 
 	public void Toggle60Hz(bool value)
